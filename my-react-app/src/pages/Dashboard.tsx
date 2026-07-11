@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react';
 import CategoryItem from '../components/ui/CategoryItem';
 import ExperienceCard from '../components/ui/ExperienceCard';
+import ProfileDrawer from '../components/ui/ProfileDrawer';
 import { CATEGORIES, EXPERIENCES_BY_CITY } from '../constants/experiences';
 
 interface DashboardProps {
@@ -12,6 +13,7 @@ interface DashboardProps {
 export default function Dashboard({ selectedCity, onCityChange, onLogout }: DashboardProps) {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [profileOpen, setProfileOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
 
   // Fetch experiences matching the active city and search/category filters
@@ -103,7 +105,7 @@ export default function Dashboard({ selectedCity, onCityChange, onLogout }: Dash
 
             {/* Profile Outline Button */}
             <button 
-              onClick={onLogout}
+              onClick={() => setProfileOpen(true)}
               className="w-9 h-9 rounded-full bg-[#0E0E0E] border border-white/10 flex items-center justify-center text-neutral-400 hover:text-[#C5A880] hover:border-[#C5A880] transition-all duration-300 outline-none"
               aria-label="User Profile"
             >
@@ -213,6 +215,12 @@ export default function Dashboard({ selectedCity, onCityChange, onLogout }: Dash
         </section>
 
       </div>
+
+      {/* Profile Drawer Overlay */}
+      <ProfileDrawer 
+        isOpen={profileOpen} 
+        onClose={() => setProfileOpen(false)} 
+      />
 
     </div>
   );

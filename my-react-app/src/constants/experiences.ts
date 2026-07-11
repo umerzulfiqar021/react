@@ -4,7 +4,7 @@ import baliMassageImg from '../assets/bali_massage.png';
 export interface Category {
   id: string;
   name: string;
-  iconName: 'spa' | 'hair' | 'face' | 'fitness';
+  iconName: 'spa' | 'hair' | 'face' | 'fitness' | 'nails' | 'makeup' | 'ivdrips';
 }
 
 export interface Experience {
@@ -22,8 +22,11 @@ export interface Experience {
 export const CATEGORIES: Category[] = [
   { id: 'spa', name: 'Spa & Massage', iconName: 'spa' },
   { id: 'hair', name: 'Hair Removal', iconName: 'hair' },
-  { id: 'face', name: 'Face Skin Care', iconName: 'face' },
+  { id: 'face', name: 'Face & Skin', iconName: 'face' },
   { id: 'fitness', name: 'Fitness & Gym', iconName: 'fitness' },
+  { id: 'nails', name: 'Nails & Lashes', iconName: 'nails' },
+  { id: 'makeup', name: 'Makeup & Styling', iconName: 'makeup' },
+  { id: 'ivdrips', name: 'IV Drips & Wellness', iconName: 'ivdrips' },
 ];
 
 export const EXPERIENCES_BY_CITY: Record<'dubai' | 'bali', Experience[]> = {
