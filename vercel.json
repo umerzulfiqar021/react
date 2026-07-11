@@ -1,5 +1,5 @@
 {
-  "buildCommand": "cd my-react-app && npm run build",
+  "buildCommand": "cd my-react-app && npm install && npm run build",
   "outputDirectory": "my-react-app/dist",
   "cleanUrls": true,
   "rewrites": [
